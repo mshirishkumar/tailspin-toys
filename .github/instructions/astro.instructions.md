@@ -38,12 +38,20 @@ const games = await getAllGames(getDatabase());
 - Use `<slot />` for content injection
 - Include common elements: `<head>`, navigation, footer
 - Import global styles in layouts
+- Document each reusable component's `Props` interface with a brief description of the component contract and its properties.
+
+### Comments and component documentation
+
+- Comment why a component uses a non-obvious rendering or routing decision; do not describe markup that is already self-explanatory.
+- Keep comments current as the component changes.
+- Treat the documented `Props` interface as the component's public API. Include defaults, optional behavior, and data-shape expectations where they are not obvious from the types.
 
 ### Layout Example
 
 ```astro
 ---
 interface Props {
+  /** Text shown in the document title. */
   title: string;
 }
 const { title } = Astro.props;
